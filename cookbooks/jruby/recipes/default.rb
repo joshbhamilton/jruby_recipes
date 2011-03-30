@@ -11,9 +11,9 @@ package "dev-java/jruby-bin" do
   action :install
 end
 
-execute "install-glassfish" do
-  command "/usr/bin/jruby -S jgem install glassfish"
-end
+#execute "install-glassfish" do
+#  command "/usr/bin/jruby -S jgem install glassfish"
+#end
 
 #execute "install-trinidad" do
 #  command "/usr/bin/jruby -S gem install trinidad"
