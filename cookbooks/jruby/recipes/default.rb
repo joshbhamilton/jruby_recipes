@@ -25,7 +25,7 @@ end
 #
 #####
 
-APP_DIRECTORY = '/data/Twitter_EY/current'
+APP_DIRECTORY = '/data/jruby_hello_world/current'
 
 #####
 #
@@ -92,22 +92,22 @@ end
 #end
 
 # Install the trinidad configuration file.
-#template File.join([APP_DIRECTORY],'config','trinidad.yml') do
-#  owner node[:owner_name]
-#  group node[:owner_name]
-#  source 'trinidad.yml.erb'
-#  variables({
-#    :environment => 'development',
-#    :port => 3000,
-#    :contextroot => '/',
-#    :log_level => 3,
-#    :jruby_runtime_pool_initial => JRUBY_RUNTIME_POOL_INITIAL,
-#    :jruby_runtime_pool_min => JRUBY_RUNTIME_POOL_MIN,
-#    :jruby_runtime_pool_max => JRUBY_RUNTIME_POOL_MAX,
-#    :daemon_enable => 'false', # It will be daemonized, but leave this as false for now.
-#    :jvm_options => JVM_CONFIG
-#  })
-#end
+template File.join([APP_DIRECTORY],'config','trinidad.yml') do
+  owner node[:owner_name]
+  group node[:owner_name]
+  source 'trinidad.yml.erb'
+  variables({
+    :environment => 'development',
+    :port => 3000,
+    :contextroot => '/',
+    :log_level => 3,
+    :jruby_runtime_pool_initial => JRUBY_RUNTIME_POOL_INITIAL,
+    :jruby_runtime_pool_min => JRUBY_RUNTIME_POOL_MIN,
+    :jruby_runtime_pool_max => JRUBY_RUNTIME_POOL_MAX,
+    :daemon_enable => 'false', # It will be daemonized, but leave this as false for now.
+    :jvm_options => JVM_CONFIG
+  })
+end
 
 # Install the glassfish start/stop script.
 #template '/etc/init.d/glassfish' do
@@ -133,6 +133,6 @@ end
 
 execute "ensure-trinidad-is-running" do
     command %Q{
-      /etc/init.d/trinidad start --config /data/hello_world/current/config/trinidad.yml /data/hello_world/current
+      /etc/init.d/trinidad start --config /data/jruby_hello_world/current/config/trinidad.yml /data/jruby_hello_world/current
     }
 end
