@@ -1,0 +1,4 @@
+check process trinidad_5000
+  with pidfile /var/run/trinidad/trinidad.5000.pid
+  start program =  /usr/bin/jruby -S trinidad --config /data/hello_world/current/config/trinidad.yml  /data/hello_world/current
+  stop program =

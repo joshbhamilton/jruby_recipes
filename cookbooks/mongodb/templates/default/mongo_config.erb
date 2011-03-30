@@ -1,0 +1,3 @@
+MongoMapper.connection = Mongo::Connection.new("<%= @m_hostname %>", <%= @m_port %>)
+MongoMapper.database = "<%= @m_appname %>_<%= @m_framework_env %>"
+MongoMapper.database.authenticate("<%= @m_username %>", "<%= @m_password %>")
